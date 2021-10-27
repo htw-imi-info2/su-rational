@@ -11,6 +11,9 @@ import static org.junit.jupiter.api.Assertions.fail;
  * https://junit.org/junit5/docs/current/user-guide/
  */
 class RationalTest {
+    public void assertRationalEquals(double expected, Rational actual, String message){
+        assertEquals(expected, actual.getValue(),message);
+    }
 
     /**
      * Sets up the test fixture.
@@ -24,20 +27,20 @@ class RationalTest {
     @Test
     public void shouldHaveIntegerConstructor() {
         Rational rational = new Rational(3);
-        assertEquals( 3.0, rational.getValue(),"should be three");
+        assertRationalEquals( 3.0, rational,"should be three");
     }
 
     @Test
     public void shouldHaveRationalConstructor() {
         Rational rational = new Rational(1, 2);
-        assertEquals(0.5, rational.getValue(),"1,2");
+        assertRationalEquals(0.5, rational,"1,2");
     }
 
     @Test
     public void shouldHaveStringRepresentation() {
         Rational rational = new Rational(1, 2);
-        assertEquals("1,2", "1/2", rational.toString());
-        assertEquals("1/5", "1/5", ((new Rational(1, 5)).toString()));
+        assertEquals("1/2", rational.toString(), "1/2");
+        assertEquals("1/5", ((new Rational(1, 5)).toString()), "1/5");
     }
 
     @Test
@@ -52,7 +55,7 @@ class RationalTest {
 
         Rational a = new Rational(1, 2);
         Rational b = new Rational(2, 8);
-        assertEquals( 0.75, a.add(b),"1/2 + 1/3");
+        assertRationalEquals( 0.75, a.add(b),"1/2 + 1/3");
 
     }
 
@@ -61,13 +64,15 @@ class RationalTest {
         Rational a = new Rational(1, 2);
         Rational b = new Rational(1, 3);
         Rational c = new Rational(1, 6);
-        assertEquals( 1.0, a.add(b).add(c),"1/2 + 1/3 + 1/6 = 1");
+        assertRationalEquals( 1.0, a.add(b).add(c),"1/2 + 1/3 + 1/6 = 1");
     }
 
     @Test
     public void multiplication() {
         // a/b * c/d = ac / bd
         fail("write a test case for multiplication!");
+        // use this method to compare double with Rational:
+        // assertRationalEquals....
     }
 
     @Test
