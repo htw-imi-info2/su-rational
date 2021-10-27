@@ -11,9 +11,6 @@ import static org.junit.jupiter.api.Assertions.fail;
  * https://junit.org/junit5/docs/current/user-guide/
  */
 class RationalTest {
-    public void assertRationalEquals(double expected, Rational actual, String message){
-        assertEquals(expected, actual.getValue(),message);
-    }
 
     /**
      * Sets up the test fixture.
@@ -25,16 +22,17 @@ class RationalTest {
     }
 
     @Test
+    public void shouldHaveRationalConstructor() {
+        Rational rational = new Rational(1, 2);
+        assertRationalEquals(0.5, rational,"1,2");
+    }
+    @Test
     public void shouldHaveIntegerConstructor() {
         Rational rational = new Rational(3);
         assertRationalEquals( 3.0, rational,"should be three");
     }
 
-    @Test
-    public void shouldHaveRationalConstructor() {
-        Rational rational = new Rational(1, 2);
-        assertRationalEquals(0.5, rational,"1,2");
-    }
+
 
     @Test
     public void shouldHaveStringRepresentation() {
@@ -48,6 +46,14 @@ class RationalTest {
         Rational rational = new Rational(1, 2);
         assertEquals(0.5, rational.getValue());
     }
+    @Test
+    public void signatureExample(){
+        // simple
+        int length = countChars("hallo");
+
+    }
+
+
 
     @Test
     public void addition1() {
@@ -55,10 +61,13 @@ class RationalTest {
 
         Rational a = new Rational(1, 2);
         Rational b = new Rational(2, 8);
-        assertRationalEquals( 0.75, a.add(b),"1/2 + 1/3");
+        Rational actual = a.add(b);
+        assertRationalEquals( 0.75, actual,"1/2 + 1/3");
 
     }
-
+    public void assertRationalEquals(double expected, Rational actual, String message){
+        assertEquals(expected, actual.getValue(),message);
+    }
     @Test
     public void addition2() {
         Rational a = new Rational(1, 2);
@@ -86,4 +95,6 @@ class RationalTest {
         // a/b / c/d = ad / bc
         fail("write a test case for division");
     }
+
+
 }

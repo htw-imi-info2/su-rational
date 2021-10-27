@@ -7,4 +7,6 @@ package rational;
  * @author Barne Kleinen
  */
 public class Rational {
+    public Rational(long numerator, long denominator) {
+    }
 }
