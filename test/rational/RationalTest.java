@@ -11,9 +11,6 @@ import static org.junit.jupiter.api.Assertions.fail;
  * https://junit.org/junit5/docs/current/user-guide/
  */
 class RationalTest {
-    public void assertRationalEquals(double expected, Rational actual, String message){
-        assertEquals(expected, actual.getValue(),message);
-    }
 
     /**
      * Sets up the test fixture.
@@ -48,12 +45,6 @@ class RationalTest {
     public void shouldHaveGetValue() {
         Rational rational = new Rational(1, 2);
         assertEquals(0.5, rational.getValue());
-    }
-    @Test
-    public void signatureExample(){
-        // simple
-        int length = countChars("hallo");
-
     }
 
 
