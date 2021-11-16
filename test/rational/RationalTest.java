@@ -11,6 +11,9 @@ import static org.junit.jupiter.api.Assertions.fail;
  * https://junit.org/junit5/docs/current/user-guide/
  */
 class RationalTest {
+    public void assertRationalEquals(double expected, Rational actual, String message){
+        assertEquals(expected, actual.getValue(),message);
+    }
 
     /**
      * Sets up the test fixture.

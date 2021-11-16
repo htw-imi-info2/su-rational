@@ -7,6 +7,17 @@ package rational;
  * @author Barne Kleinen
  */
 public class Rational {
+    public Rational(long number) {
+    }
+
     public Rational(long numerator, long denominator) {
+    }
+
+    public Rational add(Rational b) {
+        return null;
+    }
+
+    public double getValue() {
+        return 0.0;
     }
 }
